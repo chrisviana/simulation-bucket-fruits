@@ -1,0 +1,43 @@
+.container-balde {
+  width: 450px;
+  height: 311px;
+  border-radius: 6px;
+  background: var(--cinza-claro);
+
+  form {
+    color: var(--coral);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+
+    input {
+      height: 40px;
+      border-radius: 6px;
+      border: 1px solid var(--cinza);
+      padding: 12px;
+    }
+
+    button {
+      height: 40px;
+      font-weight: 600;
+      background-color: var(--verde);
+      color: var(--cinza-claro);
+      border-radius: 6px;
+      border: none;
+      margin-top: 20px;
+      cursor: pointer;
+
+      &:hover {
+        transition: background 0.5s;
+        background-color: var(--verde-escuro);
+      }
+    }
+
+    p {
+      font-weight: 200;
+      color: var(--vermelho);
+    }
+  }
+}
+
