@@ -1,6 +1,8 @@
 .container-app {
   width: 997px;
-  height: 850px;
   border-radius: 6px;
   margin: 32px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
