@@ -1,3 +1,5 @@
+## [0.2.0] - 2024-06-10
+
 ### Added
 
 - [**Issue-#2**](https://github.com/chrisviana/simulation-bucket-fruits/issues/2) - Criar interface para registro de frutas
