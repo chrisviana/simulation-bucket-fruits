@@ -4,7 +4,7 @@
   border-radius: 6px;
   background: var(--cinza-claro);
 
-  div {
+  form {
     color: var(--coral);
     display: flex;
     flex-direction: column;
@@ -32,6 +32,11 @@
         transition: background 0.5s;
         background-color: var(--verde-escuro);
       }
+    }
+
+    p {
+      font-weight: 200;
+      color: var(--vermelho);
     }
   }
 }
