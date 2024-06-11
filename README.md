@@ -9,7 +9,7 @@ Foi realizado o desenvolvimento de uma aplicação onde o usuário pode criar ba
 - Eslint
 
 ### Rodar o projeto
-- Ter o node instaldo (Foi usado a versão mais atual para o desenvolvimento do projeto `v22.2.0`
+- Ter o node instaldo (Foi usado a versão mais atual para o desenvolvimento do projeto `v22.2.0`)
 - Realizar o clone do projeto
 - Executar o projeto com `npm run dev`
 
