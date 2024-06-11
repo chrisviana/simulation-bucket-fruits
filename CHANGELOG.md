@@ -1,3 +1,5 @@
+## [0.7.1] - 2024-06-10
+
 ### Added
 
 - [**Issue-#10**](https://github.com/chrisviana/simulation-bucket-fruits/issues/10) - Calcular ocupação e valor total das frutas em cada balde
