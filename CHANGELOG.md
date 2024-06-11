@@ -1,3 +1,7 @@
+### Added
+
+- [**Issue-#37**](https://github.com/chrisviana/simulation-bucket-fruits/issues/37) - Ordenação de Baldes
+
 ## [0.7.1] - 2024-06-10
 
 ### Added
