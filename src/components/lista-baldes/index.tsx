@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { BaldeContext } from '../../context/BaldeContext'
 import  TrashIcon from '../../assets/trash.svg' 
+import  TrashBlack from '../../assets/trash-black.svg' 
 import './styles.scss'
 import { toast } from 'react-toastify'
 
@@ -32,6 +33,18 @@ export const ListaBaldes = () => {
 								<img src={TrashIcon} alt="Trash Icon" />
 							</button>
 						</h3>
+						<ul className='lista-de-balde'>
+							{
+								balde.frutas.map(fruta => (
+									<li key={fruta.nome}>
+										{fruta.nome} - R$ {fruta.preco}
+										<button onClick={() => handleDelete(index)}>
+											<img src={TrashBlack} alt="Trash Icon"  />
+										</button>
+									</li>
+								))
+							}
+						</ul>
 					</div>
 				))
 			)}
