@@ -2,8 +2,10 @@ import { ReactNode, createContext, useContext, useEffect, useState } from 'react
 import { BaldeContext } from './BaldeContext'
 
 export interface Fruta {
+		id: number;
   nome: string;
   preco: number;
+
 }
 
 interface FrutaContextType {
@@ -48,6 +50,7 @@ export const FrutaProvider = ({ children } : FrutaProviderProps) => {
 			)
 		)
 	}
+
 
 
 	const value = {frutas, adicionarFruta, adicionarFrutaAoBalde}

@@ -16,8 +16,11 @@ export const Frutas = () => {
 	const { register, handleSubmit, formState: { errors }, reset } = useForm<FormularioFrutas>()
 	
 	const salvarFruta: SubmitHandler<FormularioFrutas> = data => {
-		
-		adicionarFruta(data)
+		const novaFruta = {
+			...data,
+			id: Date.now(),
+		}
+		adicionarFruta(novaFruta)
 
 		reset()
 	}
