@@ -1,5 +1,8 @@
 import { useForm, SubmitHandler } from 'react-hook-form'
 import './styles.scss'
+import { ListaFrutas } from '../lista-frutas'
+import { useContext } from 'react'
+import { FrutaContext } from '../../context/FrutaContext'
 
 type FormularioFrutas = {
 	nome: string;
@@ -8,10 +11,13 @@ type FormularioFrutas = {
 
 export const Frutas = () => {
 
+	const { adicionarFruta } = useContext(FrutaContext)
+
 	const { register, handleSubmit, formState: { errors }, reset } = useForm<FormularioFrutas>()
 	
 	const salvarFruta: SubmitHandler<FormularioFrutas> = data => {
-		console.log(data)
+		
+		adicionarFruta(data)
 
 		reset()
 	}
@@ -42,6 +48,7 @@ export const Frutas = () => {
 				</div>
 				<button type='submit'>Salvar</button>
 			</form>
+			<ListaFrutas />
 		</div>
 	)
 }
