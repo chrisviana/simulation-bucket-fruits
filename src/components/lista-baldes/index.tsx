@@ -7,7 +7,7 @@ import { toast } from 'react-toastify'
 
 export const ListaBaldes = () => {
 
-	const { baldes, removeBalde } = useContext(BaldeContext)
+	const { baldes, removeBalde, removerFrutaDoBalde } = useContext(BaldeContext)
 
 	const handleDelete = (index: number) => {
 
@@ -17,6 +17,10 @@ export const ListaBaldes = () => {
 		} else {
 			toast.warning('O balde não pode ser excluído porque possui frutas adicionadas.')
 		}
+	}
+
+	const hanldeRemoverFruta = (idFruta: number, idBalde: number) => {
+		removerFrutaDoBalde(idFruta, idBalde)
 	}
 
 	return (
@@ -38,7 +42,7 @@ export const ListaBaldes = () => {
 								balde.frutas.map(fruta => (
 									<li key={fruta.nome}>
 										{fruta.nome} - R$ {fruta.preco}
-										<button onClick={() => handleDelete(index)}>
+										<button onClick={() => hanldeRemoverFruta(fruta.id, balde.id)}>
 											<img src={TrashBlack} alt="Trash Icon"  />
 										</button>
 									</li>
