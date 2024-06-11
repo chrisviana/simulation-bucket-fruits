@@ -11,6 +11,7 @@ Foi realizado o desenvolvimento de uma aplicação onde o usuário pode criar ba
 ### Rodar o projeto
 - Ter o node instaldo (Foi usado a versão mais atual para o desenvolvimento do projeto `v22.2.0`)
 - Realizar o clone do projeto
+- Executar o comando `npm install` para instalar as dependencias
 - Executar o projeto com `npm run dev`
 
 Foi feito o deploy da aplicação na vercel [Link da Aplicação](https://simulation-bucket-fruits.vercel.app/)
