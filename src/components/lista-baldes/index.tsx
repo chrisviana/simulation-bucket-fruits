@@ -7,7 +7,7 @@ import { toast } from 'react-toastify'
 
 export const ListaBaldes = () => {
 
-	const { baldes, removeBalde, removerFrutaDoBalde } = useContext(BaldeContext)
+	const { baldes, removeBalde, removerFrutaDoBalde, somarValoresDasFrutas, calcularPercentualOcupacao } = useContext(BaldeContext)
 
 	const handleDelete = (index: number) => {
 
@@ -49,6 +49,8 @@ export const ListaBaldes = () => {
 								))
 							}
 						</ul>
+						<p>Valor total: {somarValoresDasFrutas(balde.id)}</p>
+						<p>Ocupação de: {calcularPercentualOcupacao(balde.id)?.toFixed(2)}%</p>
 					</div>
 				))
 			)}
