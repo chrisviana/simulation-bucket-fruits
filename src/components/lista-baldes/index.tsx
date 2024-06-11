@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useMemo } from 'react'
 import { BaldeContext } from '../../context/BaldeContext'
 import  TrashIcon from '../../assets/trash.svg' 
 import  TrashBlack from '../../assets/trash-black.svg' 
@@ -8,7 +8,16 @@ import { toast } from 'react-toastify'
 export const ListaBaldes = () => {
 
 	const { baldes, removeBalde, removerFrutaDoBalde, somarValoresDasFrutas, calcularPercentualOcupacao } = useContext(BaldeContext)
+	
+	const baldesOrdenados = useMemo(() => {
+		return [...baldes].sort((a, b) => {
+			const ocupacaoA = calcularPercentualOcupacao(a.id) || 0
+			const ocupacaoB = calcularPercentualOcupacao(b.id) || 0
+			return ocupacaoB - ocupacaoA
+		})
+	}, [baldes, calcularPercentualOcupacao])
 
+	
 	const handleDelete = (index: number) => {
 
 		const balde = baldes[index]
@@ -23,13 +32,14 @@ export const ListaBaldes = () => {
 		removerFrutaDoBalde(idFruta, idBalde)
 	}
 
+
 	return (
 		<div className='container-baldes'>
 			<h1>Lista de Baldes</h1>
 			{baldes.length === 0 ? (
 				<p>Não existe nenhum balde :(</p>
 			) : (
-				baldes.map((balde, index) => (
+				baldesOrdenados.map((balde, index) => (
 					<div key={balde.id}>
 						<h3>
               Capacidade {balde.capacidade}  
