@@ -1,3 +1,7 @@
+### Added
+
+- [**Issue-#8**](https://github.com/chrisviana/simulation-bucket-fruits/issues/8) - Implementar depósito de frutas em baldes
+
 ## [0.4.1] - 2024-06-10
 
 ### Fixed
