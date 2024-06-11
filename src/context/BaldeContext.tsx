@@ -13,6 +13,8 @@ interface BaldeContextType {
   removeBalde: (index: number) => void;
 	setBaldes: React.Dispatch<React.SetStateAction<Balde[]>>;
 	removerFrutaDoBalde: (frutaId: number, baldeId: number) => void;
+	somarValoresDasFrutas: (baldeId: number) => number | undefined;
+	calcularPercentualOcupacao: (baldeId: number) => number | undefined;
 }
 
 interface BaldeProviderProps {
@@ -25,6 +27,8 @@ export const BaldeContext = createContext<BaldeContextType>({
 	removeBalde: () => {},
 	setBaldes: () => {},
 	removerFrutaDoBalde: () => {},
+	somarValoresDasFrutas: () => 0,
+	calcularPercentualOcupacao: () => 0,
 })
 
 
@@ -58,7 +62,19 @@ export const BaldeProvider = ({ children } : BaldeProviderProps) => {
 		)
 	}
 
-	const value = {baldes, adicionarBalde, removeBalde, setBaldes, removerFrutaDoBalde }
+	const somarValoresDasFrutas = (baldeId: number) => {
+		return baldes.find(balde => balde.id === baldeId)?.frutas.reduce((acc, fruta) => acc + fruta.preco, 0)
+	}
+
+	const calcularPercentualOcupacao = (baldeId: number) => {
+		const balde = baldes.find(b => b.id === baldeId)
+		if (balde) {
+			return (balde.frutas.length / balde.capacidade) * 100
+		}
+		return undefined
+	}
+
+	const value = {baldes, adicionarBalde, removeBalde, setBaldes, removerFrutaDoBalde, somarValoresDasFrutas, calcularPercentualOcupacao }
 
 	return <BaldeContext.Provider value={value}>{children}</BaldeContext.Provider>
 }
