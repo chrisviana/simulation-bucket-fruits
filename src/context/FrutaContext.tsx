@@ -1,6 +1,7 @@
-import { ReactNode, createContext, useEffect, useState } from 'react'
+import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
+import { BaldeContext } from './BaldeContext'
 
-interface Fruta {
+export interface Fruta {
   nome: string;
   preco: number;
 }
@@ -8,6 +9,7 @@ interface Fruta {
 interface FrutaContextType {
   frutas: Fruta[];
 	adicionarFruta: (balde: Fruta) => void;
+	adicionarFrutaAoBalde: (fruta: Fruta, baldeId: number) => void;
 }
 
 interface FrutaProviderProps {
@@ -16,11 +18,14 @@ interface FrutaProviderProps {
 
 export const FrutaContext = createContext<FrutaContextType>({
 	frutas: [],
-	adicionarFruta: () => {}
+	adicionarFruta: () => {},
+	adicionarFrutaAoBalde: () => {},
 })
 
 
 export const FrutaProvider = ({ children } : FrutaProviderProps) => {
+
+	const { setBaldes } = useContext(BaldeContext)
 
 	const [frutas, setFrutas] = useState<Fruta[]>(() => {
 		const frutasStorage = localStorage.getItem('frutas')
@@ -35,8 +40,17 @@ export const FrutaProvider = ({ children } : FrutaProviderProps) => {
 		setFrutas([...frutas, fruta])
 	}
 
+	const adicionarFrutaAoBalde = (fruta: Fruta, baldeId: number) => {
+		console.log(fruta, baldeId)
+		setBaldes(prevBaldes => 
+			prevBaldes.map(balde => 
+				balde.id === baldeId ? { ...balde, frutas: [...balde.frutas, fruta] } : balde
+			)
+		)
+	}
 
-	const value = {frutas, adicionarFruta}
+
+	const value = {frutas, adicionarFruta, adicionarFrutaAoBalde}
 
 	return <FrutaContext.Provider value={value}>{children}</FrutaContext.Provider>
 }
