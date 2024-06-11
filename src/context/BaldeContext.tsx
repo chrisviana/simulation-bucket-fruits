@@ -1,9 +1,5 @@
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
-
-interface Fruta {
-  nome: string;
-  preco: number;
-}
+import { Fruta } from './FrutaContext'
 
 export interface Balde {
   capacidade: number;
@@ -16,6 +12,7 @@ interface BaldeContextType {
   adicionarBalde: (balde: Balde) => void;
   removeBalde: (index: number) => void;
 	setBaldes: React.Dispatch<React.SetStateAction<Balde[]>>;
+	removerFrutaDoBalde: (frutaId: number, baldeId: number) => void;
 }
 
 interface BaldeProviderProps {
@@ -27,6 +24,7 @@ export const BaldeContext = createContext<BaldeContextType>({
 	adicionarBalde: () => {},
 	removeBalde: () => {},
 	setBaldes: () => {},
+	removerFrutaDoBalde: () => {},
 })
 
 
@@ -51,7 +49,16 @@ export const BaldeProvider = ({ children } : BaldeProviderProps) => {
 		setBaldes(baldesAtulizados)
 	}
 
-	const value = {baldes, adicionarBalde, removeBalde, setBaldes }
+
+	const removerFrutaDoBalde = (frutaId: number, baldeId: number) => {
+		setBaldes(prevBaldes => 
+			prevBaldes.map(balde => 
+				balde.id === baldeId ? { ...balde, frutas: balde.frutas.filter(fruta => fruta.id !== frutaId) } : balde
+			)
+		)
+	}
+
+	const value = {baldes, adicionarBalde, removeBalde, setBaldes, removerFrutaDoBalde }
 
 	return <BaldeContext.Provider value={value}>{children}</BaldeContext.Provider>
 }
