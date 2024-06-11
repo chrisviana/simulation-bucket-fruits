@@ -1,3 +1,5 @@
+## [0.4.1] - 2024-06-10
+
 ### Fixed
 
 - [**Issue-#24**](https://github.com/chrisviana/simulation-bucket-fruits/issues/24) - Fix: Tela principal com espaço em branco
