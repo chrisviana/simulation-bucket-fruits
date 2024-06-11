@@ -1,3 +1,9 @@
+## [0.3.0] - 2024-06-10
+
+### Added
+
+- [**Issue-#3**](https://github.com/chrisviana/simulation-bucket-fruits/issues/3) - Interface para lista de baldes e remoção baldes
+
 ## [0.2.0] - 2024-06-10
 
 ### Added
