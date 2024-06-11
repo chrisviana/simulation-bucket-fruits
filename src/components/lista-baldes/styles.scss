@@ -1,0 +1,36 @@
+.container-baldes {
+  width: 450px;
+  height: auto;
+  border-radius: 6px;
+  background: var(--cinza-claro);
+  display: flex;
+  gap: 10px;
+  padding: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  p {
+    font-size: 18px;
+  }
+
+  div {
+    color: var(--branco);
+    background-color: var(--cinza);
+    height: 200px;
+    width: 200px;
+    padding: 8px;
+    font-size: 12px;
+
+    h3 {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
