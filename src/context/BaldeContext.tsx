@@ -47,10 +47,9 @@ export const BaldeProvider = ({ children } : BaldeProviderProps) => {
 		setBaldes([...baldes, balde])
 	}
 
-	const removeBalde = (index: number) => {
-		const baldesAtulizados = [...baldes]
-		baldesAtulizados.splice(index, 1)
-		setBaldes(baldesAtulizados)
+	const removeBalde = (id: number) => {
+		const baldesAtualizados = baldes.filter(balde => balde.id !== id)
+		setBaldes(baldesAtualizados)
 	}
 
 

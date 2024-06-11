@@ -18,11 +18,10 @@ export const ListaBaldes = () => {
 	}, [baldes, calcularPercentualOcupacao])
 
 	
-	const handleDelete = (index: number) => {
-
-		const balde = baldes[index]
-		if (balde.frutas.length === 0) {
-			removeBalde(index)
+	const handleDelete = (id: number) => {
+		const balde = baldes.find(balde => balde.id === id)
+		if (balde && balde.frutas.length === 0) {
+			removeBalde(id)
 		} else {
 			toast.warning('O balde não pode ser excluído porque possui frutas adicionadas.')
 		}
@@ -39,11 +38,11 @@ export const ListaBaldes = () => {
 			{baldes.length === 0 ? (
 				<p>Não existe nenhum balde :(</p>
 			) : (
-				baldesOrdenados.map((balde, index) => (
+				baldesOrdenados.map((balde) => (
 					<div key={balde.id}>
 						<h3>
               Capacidade {balde.capacidade}  
-							<button onClick={() => handleDelete(index)}>
+							<button onClick={() => handleDelete(balde.id)}>
 								<img src={TrashIcon} alt="Trash Icon" />
 							</button>
 						</h3>
