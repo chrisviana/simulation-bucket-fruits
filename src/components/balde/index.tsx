@@ -2,6 +2,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import './style.scss'
 import { useContext } from 'react'
 import { BaldeContext } from '../../context/BaldeContext'
+import { ListaBaldes } from '../lista-baldes'
 
 type FormularioData = {
 	capacidade: number
@@ -42,7 +43,7 @@ export const Balde = () => {
 				{errors.capacidade && <p>{errors.capacidade.message}</p>}
 				<button type='submit'>Salvar</button>
 			</form>
-      
+			<ListaBaldes />
 		</div>
 	)
 }
