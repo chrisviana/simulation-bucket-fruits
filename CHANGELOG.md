@@ -1,3 +1,5 @@
+## [0.4.0] - 2024-06-10
+
 ### Added
 
 - [**Issue-#4**](https://github.com/chrisviana/simulation-bucket-fruits/issues/4) - Visualizar lista de frutas
