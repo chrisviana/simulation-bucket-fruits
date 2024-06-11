@@ -1,3 +1,5 @@
+## [0.6.1] - 2024-06-10
+
 ### Added
 
 - [**Issue-#9**](https://github.com/chrisviana/simulation-bucket-fruits/issues/9) - Implementar remoção de frutas de baldes
