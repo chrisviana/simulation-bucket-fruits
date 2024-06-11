@@ -1,5 +1,7 @@
 import { useForm, SubmitHandler } from 'react-hook-form'
 import './style.scss'
+import { useContext } from 'react'
+import { BaldeContext } from '../../context/BaldeContext'
 
 type FormularioData = {
 	capacidade: number
@@ -8,11 +10,19 @@ type FormularioData = {
 
 export const Balde = () => {
 
+	const { adicionarBalde } = useContext(BaldeContext)
+
 	const { register, handleSubmit, formState: { errors }, reset } = useForm<FormularioData>()
 	
 	const salvarBalde: SubmitHandler<FormularioData> = data => {
-		console.log(data)
-
+		const novoBalde = {
+			...data,
+			id: Date.now(),
+			frutas: []
+		}
+		
+		adicionarBalde(novoBalde)
+		
 		reset()
 	}
 

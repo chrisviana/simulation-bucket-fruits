@@ -1,15 +1,19 @@
 import { Balde } from './components/balde'
 import './app.scss'
 import { Frutas } from './components/frutas'
+import { ListaBaldes } from './components/lista-baldes'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 export const App = () => {
 
 	return (
 		<div className='container-app'>
 			<Balde />
 			<Frutas />
-			<div>
-				<h1>Lista de Balde</h1>
-			</div>
+			<ListaBaldes />
+			<ToastContainer
+				autoClose={3000}
+			/>
 		</div>
 	)
 }
